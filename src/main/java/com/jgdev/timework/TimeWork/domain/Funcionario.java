@@ -8,10 +8,9 @@ public class Funcionario {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     int id;
-
-    String nome;
+    String name;
     @Column(unique = true, nullable = false)
-    String senha;
+    String password;
     @Column(unique = true, nullable = false)
     String matricula;
 
@@ -29,20 +28,20 @@ public class Funcionario {
         this.id = id;
     }
 
-    public String getNome() {
-        return nome;
+    public String getName() {
+        return name;
     }
 
     public void setNome(String nome) {
-        this.nome = nome;
+        this.name = name;
     }
 
-    public String getSenha() {
-        return senha;
+    public String getPassword() {
+        return password;
     }
 
-    public void setSenha(String senha) {
-        this.senha = senha;
+    public void setPassword(String senha) {
+        this.password = senha;
     }
 
     public String getMatricula() {

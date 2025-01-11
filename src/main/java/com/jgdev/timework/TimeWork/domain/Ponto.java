@@ -8,10 +8,24 @@ import java.time.LocalTime;
 @Entity
 public class Ponto {
     @Id
-            @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     int id;
     @Column(nullable = false)
     LocalDate dataEntrada;
+    @Column(nullable = false)
+    LocalTime entrada;
+    LocalTime saidaIntervalo;
+    LocalTime retornoIntervalo;
+    LocalTime saida;
+    @ManyToOne
+    Funcionario funcionario;
+    LocalTime totalPrimerioIntervalo;
+    LocalTime totalSegundoIntervalo;
+    LocalTime totalHorarioExtra;
+    int motivo = 0;
+
+    public Ponto() {
+    }
 
     public LocalTime getEntrada() {
         return entrada;
@@ -21,33 +35,12 @@ public class Ponto {
         this.entrada = entrada;
     }
 
-    @Column(nullable = false)
-    LocalTime entrada;
-
-    LocalTime saidaIntervalo;
-
-
-    LocalTime retornoIntervalo;
-
-    LocalTime saida;
-    @ManyToOne
-    Funcionario funcionario;
-
     public LocalTime getTotalPrimerioIntervalo() {
         return totalPrimerioIntervalo;
     }
 
     public void setTotalPrimerioIntervalo(LocalTime totalPrimerioIntervalo) {
         this.totalPrimerioIntervalo = totalPrimerioIntervalo;
-    }
-
-    LocalTime totalPrimerioIntervalo;
-
-    LocalTime totalSegundoIntervalo;
-    LocalTime totalHorarioExtra;
-    int motivo = 0;
-
-    public Ponto() {
     }
 
     public Funcionario getFuncionario() {
@@ -74,7 +67,6 @@ public class Ponto {
     public void setTotalHorarioExtra(LocalTime totalHorarioExtra) {
         this.totalHorarioExtra = totalHorarioExtra;
     }
-
 
 
     public int getId() {
