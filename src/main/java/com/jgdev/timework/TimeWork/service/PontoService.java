@@ -11,6 +11,8 @@ import org.springframework.stereotype.Service;
 import java.time.Duration;
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -33,10 +35,10 @@ public class PontoService {
     }
 
     @Transactional
-    public void registrarSaidaIntervalo(Integer id, LocalTime saidaIntervalo) {
-        Optional<Ponto> pontoOpt = pontoRepository.findById(id);
+    public void registrarSaidaIntervalo(Integer registroId, LocalTime saidaIntervalo) {
+        Optional<Ponto> pontoOpt = pontoRepository.findById(registroId);
         if (pontoOpt.isPresent()) {
-            pontoRepository.registrarSaidaIntervalo(id, saidaIntervalo);
+            pontoRepository.registrarSaidaIntervalo(registroId, saidaIntervalo);
             pontoOpt.get().setSaidaIntervalo(saidaIntervalo);
             calcularTotalPrimeiroIntervalo(pontoOpt.get());
 
@@ -44,10 +46,10 @@ public class PontoService {
     }
 
     @Transactional
-    public void registrarRetornoIntervalo(Integer id, LocalTime retornoIntervalo) {
-        Optional<Ponto> pontoOpt = pontoRepository.findById(id);
+    public void registrarRetornoIntervalo(Integer registroId, LocalTime retornoIntervalo) {
+        Optional<Ponto> pontoOpt = pontoRepository.findById(registroId);
         if (pontoOpt.isPresent()) {
-            pontoRepository.registrarRetornoIntervalo(id, retornoIntervalo);
+            pontoRepository.registrarRetornoIntervalo(registroId, retornoIntervalo);
         }
     }
 
@@ -88,6 +90,14 @@ public class PontoService {
             ponto.setTotalHorarioExtra(LocalTime.of((int) extra.toHours(), extra.toMinutesPart()));
             pontoRepository.CalculartotalHorarioExtra(ponto.getId(), ponto.getTotalHorarioExtra());
         }
+    }
+
+    public List<Ponto> getAllPontosFuncinarioById(Integer idFuncionario){
+        List<Ponto> allPontos =  pontoRepository.findAllPontoByIdFuncionario(idFuncionario);
+        if (allPontos.isEmpty()){
+            return new ArrayList<>();
+        }
+        return  allPontos;
     }
 
 

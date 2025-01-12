@@ -10,6 +10,7 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import java.time.LocalTime;
+import java.util.List;
 
 @Repository
 @EnableJpaRepositories
@@ -47,6 +48,10 @@ public interface PontoRepository extends JpaRepository<Ponto, Integer> {
     @Transactional
     @Query("UPDATE Ponto p SET p.totalHorarioExtra = :totalHorarioExtra WHERE p.id = :id")
     void CalculartotalHorarioExtra(@Param("id") Integer id, @Param("totalHorarioExtra") LocalTime totalHorarioExtra);
+
+    @Transactional
+    @Query("SELECT p FROM Ponto p WHERE p.funcionario.id = :funcionarioId")
+    List<Ponto> findAllPontoByIdFuncionario(@Param("funcionarioId") Integer idFuncionario);
 
 
 }
