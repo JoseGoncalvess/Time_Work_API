@@ -9,6 +9,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
+import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.List;
 
@@ -52,6 +53,10 @@ public interface PontoRepository extends JpaRepository<Ponto, Integer> {
     @Transactional
     @Query("SELECT p FROM Ponto p WHERE p.funcionario.id = :funcionarioId")
     List<Ponto> findAllPontoByIdFuncionario(@Param("funcionarioId") Integer idFuncionario);
+
+    @Transactional
+    @Query("SELECT p FROM Ponto p WHERE p.funcionario.id = :funcionarioId AND p.dataEntrada = :dataEntrada")
+    Ponto findPontoDayByIdandDate(@Param("funcionarioId") Integer idFuncionario,@Param("dataEntrada") LocalDate dateDay);
 
 
 }

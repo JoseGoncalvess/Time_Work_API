@@ -5,6 +5,7 @@ import com.jgdev.timework.TimeWork.service.PontoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.List;
 
@@ -18,6 +19,11 @@ public class PontoController {
     public List<Ponto> getAllPotosByFuncionarioId(@PathVariable("id") Integer funcionarioId ){
         return  pontoService.getAllPontosFuncinarioById(funcionarioId);
     }
+    @GetMapping("/registerday/{id}/{day}")
+    public Ponto getPotosDayFuncionarioByIdandDate(@PathVariable("id") Integer funcionarioId, @PathVariable("day") LocalDate dateDay ){
+        return  pontoService.getPontoDayFuncinario(funcionarioId,dateDay);
+    }
+
 
 
 

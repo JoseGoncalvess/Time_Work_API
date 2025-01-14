@@ -100,5 +100,10 @@ public class PontoService {
         return  allPontos;
     }
 
+    public Ponto getPontoDayFuncinario(Integer idFuncionario, LocalDate dateDay){
+        Ponto pontoDay =  pontoRepository.findPontoDayByIdandDate(idFuncionario, dateDay);
+        return  pontoDay;
+    }
+
 
 }
