@@ -14,11 +14,49 @@ public class Funcionario {
     @Column(unique = true, nullable = false)
     String matricula;
 
+    @Column(unique = false, nullable = true)
+    String telefone;
+    @Column(unique = true, nullable = true)
+    String email;
+
+    @Column(unique = false, nullable = true)
+    String cargo;
+
+
     int status;
 
     public Funcionario() {
 
     }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getTelefone() {
+        return telefone;
+    }
+
+    public void setTelefone(String telefone) {
+        this.telefone = telefone;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getCargo() {
+        return cargo;
+    }
+
+    public void setCargo(String cargo) {
+        this.cargo = cargo;
+    }
+
 
     public int getId() {
         return id;
