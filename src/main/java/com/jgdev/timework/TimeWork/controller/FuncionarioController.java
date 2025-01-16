@@ -1,7 +1,7 @@
 package com.jgdev.timework.TimeWork.controller;
 
 import com.jgdev.timework.TimeWork.domain.Funcionario;
-import com.jgdev.timework.TimeWork.service.FuncionarioService;
+import com.jgdev.timework.TimeWork.service.Impl.FuncionarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

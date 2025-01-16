@@ -1,18 +1,19 @@
-package com.jgdev.timework.TimeWork.service;
+package com.jgdev.timework.TimeWork.service.Impl;
 
 import com.jgdev.timework.TimeWork.domain.Funcionario;
 import com.jgdev.timework.TimeWork.repository.FuncioanarioRepository;
+import com.jgdev.timework.TimeWork.service.IFuncionarioInterface;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
-public class FuncionarioService {
+public class FuncionarioService implements IFuncionarioInterface {
     @Autowired
     FuncioanarioRepository funcioanarioRepository;
 
-    public Funcionario saveFuncionario(Funcionario funcionario) {
+    public Funcionario saveFuncionario(Funcionario funcionario)  {
         return funcioanarioRepository.save(funcionario);
     }
 

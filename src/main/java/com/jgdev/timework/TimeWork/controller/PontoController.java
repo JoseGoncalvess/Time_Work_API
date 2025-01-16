@@ -1,7 +1,7 @@
 package com.jgdev.timework.TimeWork.controller;
 
 import com.jgdev.timework.TimeWork.domain.Ponto;
-import com.jgdev.timework.TimeWork.service.PontoService;
+import com.jgdev.timework.TimeWork.service.Impl.PontoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

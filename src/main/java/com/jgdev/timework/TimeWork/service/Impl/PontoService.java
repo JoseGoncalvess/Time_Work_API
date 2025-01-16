@@ -1,9 +1,10 @@
-package com.jgdev.timework.TimeWork.service;
+package com.jgdev.timework.TimeWork.service.Impl;
 
 import com.jgdev.timework.TimeWork.domain.Funcionario;
 import com.jgdev.timework.TimeWork.domain.Ponto;
 import com.jgdev.timework.TimeWork.repository.FuncioanarioRepository;
 import com.jgdev.timework.TimeWork.repository.PontoRepository;
+import com.jgdev.timework.TimeWork.service.IPontoInterface;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,7 +17,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class PontoService {
+public class PontoService implements IPontoInterface {
 
     @Autowired
     private PontoRepository pontoRepository;
@@ -64,7 +65,7 @@ public class PontoService {
         }
     }
 
-    private void calcularTotalPrimeiroIntervalo(Ponto ponto) {
+    public void calcularTotalPrimeiroIntervalo(Ponto ponto) {
         if (ponto.getEntrada() != null && ponto.getSaidaIntervalo() != null) {
             Duration duration = Duration.between(ponto.getEntrada(), ponto.getSaidaIntervalo());
             ponto.setTotalPrimerioIntervalo(LocalTime.of((int) duration.toHours(), duration.toMinutesPart()));
@@ -72,7 +73,7 @@ public class PontoService {
         }
     }
 
-    private void calcularTotalSegundoIntervalo(Ponto ponto) {
+    public void calcularTotalSegundoIntervalo(Ponto ponto) {
         if (ponto.getRetornoIntervalo() != null && ponto.getSaida() != null) {
             Duration duration = Duration.between(ponto.getRetornoIntervalo(), ponto.getSaida());
             ponto.setTotalSegundoIntervalo(LocalTime.of((int) duration.toHours(), duration.toMinutesPart()));
@@ -81,7 +82,7 @@ public class PontoService {
 
 
     }
-    private void calcularHorasExtras(Ponto ponto) {
+    public void calcularHorasExtras(Ponto ponto) {
         if (ponto.getTotalPrimerioIntervalo() != null && ponto.getTotalSegundoIntervalo() != null) {
            LocalTime durationBussines = LocalTime.of(8,0);
             Duration durationWorking = Duration.between(ponto.getTotalPrimerioIntervalo(), ponto.getTotalSegundoIntervalo());
