@@ -24,7 +24,7 @@ public class FuncionarioController {
         return funcionarioService.getAllFuncionarios();
     }
 
-    @GetMapping("matricula/{matricula}")
+    @GetMapping("/matricula/{matricula}")
     public Funcionario getFuncionarioByMatricula(
             @PathVariable("matricula") String matricula) {
         return funcionarioService.getFuncionarioByMatricula(matricula);

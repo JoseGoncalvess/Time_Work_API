@@ -19,7 +19,7 @@ public class PontoController {
     public List<Ponto> getAllPotosByFuncionarioId(@PathVariable("id") Integer funcionarioId ){
         return  pontoService.getAllPontosFuncinarioById(funcionarioId);
     }
-    @GetMapping("git")
+    @GetMapping("/registerday/{id}/{day}")
     public Ponto getPotosDayFuncionarioByIdandDate(@PathVariable("id") Integer funcionarioId, @PathVariable("day") LocalDate dateDay ){
         return  pontoService.getPontoDayFuncinario(funcionarioId,dateDay);
     }
@@ -27,26 +27,26 @@ public class PontoController {
 
 
 
-    @PostMapping("entarda/{id}")
+    @PostMapping("/entarda/{id}")
     public void setEntrada(@PathVariable("id") Integer funcionarioId) {
         LocalTime entrada =  LocalTime.now();
         pontoService.registrarEntrada(funcionarioId, entrada);
     }
 
-    @PostMapping("saidainterval/{id}")
+    @PostMapping("/saidainterval/{id}")
     public void setSaidaIntervalo(@PathVariable("id") Integer registroId) {
         LocalTime entrada =  LocalTime.now();
         pontoService.registrarSaidaIntervalo(registroId, entrada);
     }
 
-    @PostMapping("retornointerval/{id}")
+    @PostMapping("/retornointerval/{id}")
     public void setRetornoIntervalo(@PathVariable("id") Integer registroId) {
         LocalTime entrada =  LocalTime.now();
         pontoService.registrarRetornoIntervalo(registroId, entrada);
     }
 
 
-    @PostMapping("saida/{id}")
+    @PostMapping("/saida/{id}")
     public void setSaida(@PathVariable("id") Integer registroId) {
         LocalTime entrada =  LocalTime.now();
         pontoService.registrarSaida(registroId, entrada);
