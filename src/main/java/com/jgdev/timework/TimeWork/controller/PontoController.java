@@ -19,7 +19,7 @@ public class PontoController {
     public List<Ponto> getAllPotosByFuncionarioId(@PathVariable("id") Integer funcionarioId ){
         return  pontoService.getAllPontosFuncinarioById(funcionarioId);
     }
-    @GetMapping("/registerday/{id}/{day}")
+    @GetMapping("git")
     public Ponto getPotosDayFuncionarioByIdandDate(@PathVariable("id") Integer funcionarioId, @PathVariable("day") LocalDate dateDay ){
         return  pontoService.getPontoDayFuncinario(funcionarioId,dateDay);
     }
