@@ -23,6 +23,10 @@ public class Funcionario {
     String cargo;
 
 
+
+    @OneToOne
+    Enterprise Enterprise;
+
     int status;
 
     public Funcionario() {
@@ -97,6 +101,14 @@ public class Funcionario {
     public void setStatus(int status) {
         this.status = status;
     }
+    public Enterprise getEnterprise() {
+        return Enterprise;
+    }
+
+    public void setEnterprise( Enterprise enterprise) {
+        Enterprise = enterprise;
+    }
+
 
 
 }
