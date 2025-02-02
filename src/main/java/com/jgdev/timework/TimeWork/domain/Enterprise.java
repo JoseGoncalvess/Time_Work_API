@@ -7,7 +7,6 @@ import jakarta.persistence.*;
 @Entity
 public class Enterprise {
 
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private  int id;
@@ -60,5 +59,14 @@ public class Enterprise {
         this.telefone = telefone;
     }
 
-    
+
+    public Enterprise() {
+    }
+
+    public Enterprise(String name, String cnpj, String email, String telefone) {
+        this.name = name;
+        this.cnpj = cnpj;
+        this.email = email;
+        this.telefone = telefone;
+    }
 }
