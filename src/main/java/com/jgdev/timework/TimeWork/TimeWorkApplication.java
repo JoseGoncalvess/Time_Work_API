@@ -10,7 +10,6 @@ public class TimeWorkApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(TimeWorkApplication.class, args);
 
-
 	}
 
 }

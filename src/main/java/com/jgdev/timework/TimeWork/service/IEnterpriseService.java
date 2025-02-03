@@ -10,5 +10,7 @@ public interface IEnterpriseService {
     public Enterprise saveEnterprise(Enterprise enterprise);
     public List<Enterprise> getAllEnterprise();
     public Enterprise getEnterpriseById(Integer enterpriseId);
+    public Enterprise getEnterpriseByCnpj(String enterpriseCnpj);
+    public Enterprise getEnterpriseByEmail(String enterpriseEmail);
     public Enterprise updateEnterprise(Enterprise enterprise) ;
 }

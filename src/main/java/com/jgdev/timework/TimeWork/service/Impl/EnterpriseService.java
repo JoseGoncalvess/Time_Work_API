@@ -30,6 +30,15 @@ public class EnterpriseService implements IEnterpriseService {
     }
 
     @Override
+    public Enterprise getEnterpriseByCnpj(String enterpriseCnpj) {
+        return enterpriseRepository.findEnterpriseByCnpj(enterpriseCnpj);
+    }
+    @Override
+    public Enterprise getEnterpriseByEmail(String enterpriseEmail) {
+        return enterpriseRepository.findEnterpriseByEmail(enterpriseEmail);
+    }
+
+    @Override
     public Enterprise updateEnterprise(Enterprise UpdateEnterprise) {
         return enterpriseRepository.save(UpdateEnterprise);
     }

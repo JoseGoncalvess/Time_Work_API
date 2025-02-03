@@ -18,7 +18,7 @@ public class EnterpriseController {
    private EnterpriseService enterpriseService;
 
     @PostMapping
-    public Enterprise savedFuncionario(@RequestBody Enterprise enterprise) {
+    public Enterprise savedEnterprise(@RequestBody Enterprise enterprise) {
         return enterpriseService.saveEnterprise(enterprise);
     }
 
@@ -31,5 +31,16 @@ public class EnterpriseController {
     public Enterprise getEnterpriseById(
             @PathVariable("id") Integer idEnterprise) {
         return enterpriseService.getEnterpriseById(idEnterprise);
+    }
+
+    @GetMapping("/cnpj/{cnpj}")
+    public Enterprise getEnterpriseByCnpj(
+            @PathVariable("cnpj") String cnpjEnterprise) {
+        return enterpriseService.getEnterpriseByCnpj(cnpjEnterprise);
+    }
+    @GetMapping("/login/{email}")
+    public Enterprise getEnterpriseByEmail(
+            @PathVariable("email") String emailEnterprise) {
+        return enterpriseService.getEnterpriseByEmail(emailEnterprise);
     }
 }

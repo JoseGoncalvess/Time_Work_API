@@ -19,6 +19,9 @@ public class Enterprise {
     @Column(unique = true, nullable = true)
     private String telefone;
 
+    @Column(nullable = false)
+    private String password;
+
     public int getId() {
         return id;
     }
@@ -61,12 +64,22 @@ public class Enterprise {
 
 
     public Enterprise() {
+
     }
 
-    public Enterprise(String name, String cnpj, String email, String telefone) {
+    public Enterprise(String name, String cnpj, String email, String telefone, String password) {
         this.name = name;
         this.cnpj = cnpj;
         this.email = email;
         this.telefone = telefone;
+        this.password = password;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 }

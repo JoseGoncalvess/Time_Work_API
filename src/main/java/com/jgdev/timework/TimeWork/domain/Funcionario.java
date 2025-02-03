@@ -30,7 +30,17 @@ public class Funcionario {
     int status;
 
     public Funcionario() {
+    }
 
+    public Funcionario(String name, String password, String matricula, String telefone, String email, String cargo, com.jgdev.timework.TimeWork.domain.Enterprise enterprise, int status) {
+        this.name = name;
+        this.password = password;
+        this.matricula = matricula;
+        this.telefone = telefone;
+        this.email = email;
+        this.cargo = cargo;
+        Enterprise = enterprise;
+        this.status = status;
     }
 
     public void setName(String name) {
