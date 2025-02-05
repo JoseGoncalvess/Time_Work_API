@@ -106,5 +106,20 @@ public class PontoService implements IPontoInterface {
         return  pontoDay;
     }
 
+    public Ponto setPontoById(Integer idFuncionario, LocalDate dateDay){
+        Ponto pontoDay =  pontoRepository.findPontoDayByIdandDate(idFuncionario, dateDay);
+
+        if (pontoDay == null){
+            registrarEntrada(idFuncionario,LocalTime.now());
+        } else if (pontoDay.getSaidaIntervalo() == null) {
+            registrarSaidaIntervalo(idFuncionario, LocalTime.now());
+        }else if (pontoDay.getRetornoIntervalo() ==null) {
+            registrarRetornoIntervalo(idFuncionario,LocalTime.now());
+        }else if (pontoDay.getSaida() == null) {
+            registrarSaida(idFuncionario, LocalTime.now());
+        }
+        return  pontoDay;
+    }
+
 
 }

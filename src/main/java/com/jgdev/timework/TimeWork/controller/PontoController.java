@@ -25,12 +25,15 @@ public class PontoController {
     }
 
 
-
-
     @PostMapping("/entarda/{id}")
     public void setEntrada(@PathVariable("id") Integer funcionarioId) {
         LocalTime entrada =  LocalTime.now();
         pontoService.registrarEntrada(funcionarioId, entrada);
+    }
+
+    @PostMapping("/funcionario/{id}")
+    public void setPontoIsNow(@PathVariable("id") Integer funcionarioId) {
+        pontoService.setPontoById(funcionarioId, LocalDate.now());
     }
 
     @PostMapping("/saidainterval/{id}")
